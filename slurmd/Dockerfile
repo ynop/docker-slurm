@@ -106,7 +106,7 @@ WORKDIR /
 #
 
 # KALDI
-RUN yum -y install g++ zlib1g-dev make gcc automake autoconf bzip2 wget libtool subversion python2.7 libatlas3-base python-pip
+RUN yum -y install which bc gcc-c++ git zlib1g-dev make gcc automake autoconf bzip2 wget libtool subversion python2.7 atlas python-pip
 
 # SPYCH
 RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm 
@@ -123,4 +123,9 @@ RUN pip3 install modgrammar beautifulsoup4 requests cement httplib2 pystache
 #   SUPERVISOR
 #
 ADD supervisord.conf /etc/supervisord.conf
+
+#
+#   CONTAINER
+#
+EXPOSE 6817 6818 57000-59999
 
